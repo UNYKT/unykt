@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { SliderComponent } from './slider/slider';
 import { VraagComponent } from './vraag/vraag';
+import { RangeComponent } from './range/range';
 @NgModule({
 	declarations: [SliderComponent,
-    VraagComponent],
+    VraagComponent,
+    RangeComponent],
 	imports: [],
 	exports: [SliderComponent,
-    VraagComponent]
+    VraagComponent,
+    RangeComponent]
 })
 export class ComponentsModule {}

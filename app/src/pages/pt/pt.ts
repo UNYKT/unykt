@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 //Components
 import { VraagComponent } from '../../components/vraag/vraag';
+import { RangeComponent } from '../../components/range/range';
 
 /**
  * Generated class for the PtPage page.

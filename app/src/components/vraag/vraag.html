@@ -1,12 +1,14 @@
 <!-- Generated template for the VraagComponent component -->
-<ion-card>
+<ion-content>
+<ion-card *ngFor="let vraag of vragen">
   <ion-card-header>
   </ion-card-header>
 
-  <ion-card-content *ngFor="let vraag of vragen">
+  <ion-card-content>
 	<ion-list>
-		<h2>{{vraag.title}}</h2>
-		<p>{{vraag.question}}</p>
+			<h2>{{vraag.title}}</h2>
+			<p>{{vraag.question}}</p>
 	</ion-list>
   </ion-card-content>
 </ion-card>
+</ion-content>
