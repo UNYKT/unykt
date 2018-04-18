@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 //Components
@@ -18,6 +18,8 @@ import { RangeComponent } from '../../components/range/range';
   templateUrl: 'pt.html',
 })
 export class PtPage {
+	// @ViewChild(VraagComponent) vraag: VraagComponent;
+	// @ViewChild(RangeComponent) range: RangeComponent;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

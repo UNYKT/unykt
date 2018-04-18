@@ -9,14 +9,15 @@ import { ListPage } from '../pages/list/list';
 import { PtPage } from '../pages/pt/pt';
 
 //Components
-// import { VraagComponent } from '../components/vraag/vraag';
-// import { RangeComponent } from '../components/range/range';
+import { VraagComponent } from '../components/vraag/vraag';
+import { RangeComponent } from '../components/range/range';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  // @ViewChild(RangeComponent) range: RangeComponent;
 
   rootPage: any = HomePage;
 

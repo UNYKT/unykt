@@ -6,9 +6,18 @@
 
   <ion-card-content>
 	<ion-list>
+
 			<h2>{{vraag.title}}</h2>
 			<p>{{vraag.question}}</p>
+		
+			<!--<range></range>-->
+			<ion-range min="-3" max="3" step="1" snaps="true" color="secondary" [(ngModel)]="vraag.value"></ion-range>
+			   
+
+			
 	</ion-list>
+
   </ion-card-content>
 </ion-card>
+<!-- <range></range> -->
 </ion-content>
