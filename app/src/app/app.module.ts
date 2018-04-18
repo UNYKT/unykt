@@ -7,10 +7,12 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { PtPage } from '../pages/pt/pt';
+import { PerbstPage } from '../pages/perbst/perbst';
 
 //Components
 import { VraagComponent } from '../components/vraag/vraag';
 import { RangeComponent} from '../components/range/range';
+import { SliderComponent } from '../components/slider/slider';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,8 +26,10 @@ import { MockVraagProvider } from '../providers/vraag-service-mock';
     HomePage,
     ListPage,
     PtPage,
+    PerbstPage,
     VraagComponent,
-    RangeComponent
+    RangeComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +41,10 @@ import { MockVraagProvider } from '../providers/vraag-service-mock';
     HomePage,
     ListPage,
     PtPage,
+    PerbstPage,
     VraagComponent,
-    RangeComponent
+    RangeComponent,
+    SliderComponent
   ],
   providers: [
     StatusBar,
