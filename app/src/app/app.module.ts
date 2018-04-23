@@ -19,6 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 //Providers
 import { MockVraagProvider } from '../providers/vraag-service-mock';
+import { ImgProvider } from '../providers/img-service-mock';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { MockVraagProvider } from '../providers/vraag-service-mock';
     StatusBar,
     SplashScreen,
     MockVraagProvider,
+    ImgProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

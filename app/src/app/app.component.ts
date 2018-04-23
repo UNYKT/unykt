@@ -13,6 +13,9 @@ import { PerbstPage } from '../pages/perbst/perbst';
 // import { VraagComponent } from '../components/vraag/vraag';
 // import { RangeComponent } from '../components/range/range';
 
+//Provider
+import { ImgProvider } from '../providers/img-service-mock';
+
 @Component({
   templateUrl: 'app.html'
 })
