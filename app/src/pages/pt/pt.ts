@@ -20,12 +20,25 @@ import { RangeComponent } from '../../components/range/range';
 export class PtPage {
 	// @ViewChild(VraagComponent) vraag: VraagComponent;
 	// @ViewChild(RangeComponent) range: RangeComponent;
+	dec: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PtPage');
+
+    var a = 22;
+    var uit = (a / Math.floor(10));
+    var res = (uit - Math.floor(uit));
+
+    if (res !== 0) {
+      this.dec = true;
+      console.log(this.dec);
+    }
+    else {
+      console.log(this.dec);
+    }
   }
 
 }

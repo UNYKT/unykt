@@ -22,19 +22,4 @@ export class VraagComponent {
   	console.log(lengte);
   }
 
-
-  CheckDec() {
-    var a = 22;
-    var uit = (a / Math.floor(10));
-    var res = (uit - Math.floor(uit));
-
-    if (res !== 0) {
-      this.dec = true;
-      console.log(this.dec);
-    }
-    else {
-      console.log(this.dec);
-    }
-  }
-
 }
