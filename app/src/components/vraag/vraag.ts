@@ -16,4 +16,23 @@ export class VraagComponent {
   	service.findAll().then(data => this.vragen = data);
   }
 
+   Count() {
+  	var lengte = this.vragen.length;
+  	console.log(lengte);
+  }
+
+
+  CheckDec() {
+    var a = 20;
+    var uit = (a / Math.floor(10));
+    var res = (uit - Math.floor(uit));
+
+    if (res !== 0) {
+      console.log('dec');
+    }
+    else {
+      console.log('getal');
+    }
+}
+
 }

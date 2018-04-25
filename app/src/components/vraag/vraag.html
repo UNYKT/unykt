@@ -9,6 +9,7 @@
 
 			<h2>{{vraag.title}}</h2>
 			<p>{{vraag.question}}</p>
+			<button (click)="CheckDec()"></button>
 		
 			<!-- <range></range> -->
 			<ion-range min="-3" max="3" step="1" snaps="true" color="secondary" [(ngModel)]="vraag.value"></ion-range>
