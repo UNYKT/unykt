@@ -11,6 +11,7 @@ export class VraagComponent {
 	@ContentChild(RangeComponent) range: RangeComponent;
   
   vragen: Array<any>;
+  dec: boolean = false;
   
   constructor(public navCtrl: NavController, public service: MockVraagProvider) {
   	service.findAll().then(data => this.vragen = data);
@@ -23,16 +24,17 @@ export class VraagComponent {
 
 
   CheckDec() {
-    var a = 20;
+    var a = 22;
     var uit = (a / Math.floor(10));
     var res = (uit - Math.floor(uit));
 
     if (res !== 0) {
-      console.log('dec');
+      this.dec = true;
+      console.log(this.dec);
     }
     else {
-      console.log('getal');
+      console.log(this.dec);
     }
-}
+  }
 
 }

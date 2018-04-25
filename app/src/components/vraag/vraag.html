@@ -6,8 +6,8 @@
 
   <ion-card-content>
 	<ion-list>
-
-			<h2>{{vraag.title}}</h2>
+			<div *ngIf="dec">
+			<h2>{{vraag.title}}</h2></div>
 			<p>{{vraag.question}}</p>
 			<button (click)="CheckDec()"></button>
 		
