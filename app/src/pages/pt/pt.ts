@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 //Components
@@ -18,17 +18,24 @@ import { RangeComponent } from '../../components/range/range';
   templateUrl: 'pt.html',
 })
 export class PtPage {
-	// @ViewChild(VraagComponent) vraag: VraagComponent;
+	// @ViewChild(VraagComponent) vragen;
 	// @ViewChild(RangeComponent) range: RangeComponent;
 	dec: boolean = false;
+  ptMessage = "Hallo";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  // count:string;
+
+  // ngAfterViewInit(){
+  //   this.count = this.vragen.count;
+  // }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad PtPage');
 
-    var a = 22;
+    var a = 12; // Count() uit vraag.ts moet hier komen
     var uit = (a / Math.floor(10));
     var res = (uit - Math.floor(uit));
 
