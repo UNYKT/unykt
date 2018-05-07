@@ -37,6 +37,29 @@ let vragen: Array<any> = [
 		title: "Vraag 6",
 		question: "Lorem Ipsum ihihihihihiihihhii duhfjdgfgfhd hjsgd shdg?" ,
 		value: 0
+	},
+	{
+		id: 7,
+		title: "Vraag 7",
+		question: "Lorem Ipsum ihihihihihiihihhii duhfjdgfgfhd hjsgd shdg?" ,
+		value: 0
+	},
+	{
+		id: 8,
+		title: "Vraag 8",
+		question: "Lorem Ipsum ihihihihihiihihhii duhfjdgfgfhd hjsgd shdg?" ,
+		value: 0
+	},
+	{
+		id: 9,
+		title: "Vraag 9",
+		question: "Lorem Ipsum ihihihihihiihihhii duhfjdgfgfhd hjsgd shdg?" ,
+		value: 0
+	},{
+		id: 10,
+		title: "Vraag 10",
+		question: "Lorem Ipsum ihihihihihiihihhii duhfjdgfgfhd hjsgd shdg?" ,
+		value: 0
 	}
 ];
 

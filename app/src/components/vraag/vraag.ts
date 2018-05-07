@@ -13,25 +13,28 @@ export class VraagComponent {
   
   vragen: Array<any>;
   dec: boolean = false;
-  // count: string = "Hallloooo"
+  count = this.Count;
 
-  message:string = "Hallo Nick";
+  message:string = "Hallo Nick"; //hier moet de functie Count() komen
 
-  @Output() messageEvent = new EventEmitter<string>();
+  @Output() messageEvent = new EventEmitter<number>();
 
 
   
   constructor(public navCtrl: NavController, public service: MockVraagProvider) {
   	service.findAll().then(data => this.vragen = data);
+    // this.sendMessage();
   }
 
    Count() {
   	var lengte = this.vragen.length;
   	console.log(lengte);
+    return lengte;
   }
 
   sendMessage(){
-    this.messageEvent.emit(this.message);
+    let tekst = this.vragen.length;
+    this.messageEvent.emit(tekst);
   }
 
 }
