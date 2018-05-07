@@ -2,7 +2,7 @@ import { Component, ContentChild, ViewChild, Output, EventEmitter } from '@angul
 import { NavController } from 'ionic-angular';
 import { MockVraagProvider } from '../../providers/vraag-service-mock';
 import { RangeComponent } from '../range/range';
-import { PtPage } from '../../pages/pt/pt';
+import { PhtestPage } from '../../pages/phtest/phtest';
 
 @Component({
   selector: 'vragen',

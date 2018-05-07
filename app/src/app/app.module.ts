@@ -6,7 +6,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { PtPage } from '../pages/pt/pt';
+import { PhtestPage } from '../pages/phtest/phtest';
 
 //Components
 import { VraagComponent } from '../components/vraag/vraag';
@@ -23,7 +23,7 @@ import { MockVraagProvider } from '../providers/vraag-service-mock';
     MyApp,
     HomePage,
     ListPage,
-    PtPage,
+    PhtestPage,
     VraagComponent,
     RangeComponent
   ],
@@ -36,7 +36,7 @@ import { MockVraagProvider } from '../providers/vraag-service-mock';
     MyApp,
     HomePage,
     ListPage,
-    PtPage,
+    PhtestPage,
     VraagComponent,
     RangeComponent
   ],
