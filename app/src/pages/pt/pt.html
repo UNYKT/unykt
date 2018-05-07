@@ -1,23 +1,33 @@
 <ion-header>
   <ion-navbar>
-  	<button ion-button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>pt</ion-title>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
   <ion-slides pager class="position-bullet">
-    <ion-slide class="position-absolute">
+    <ion-slide class="position-absolute" *ngIf="dec">
       <!-- Message: {{count}} -->
-      Message: {{message}}
-      <vragen *ngIf="dec" (messageEvent)="receiveMessage($event)"></vragen>
+      <ion-content margin-top margin-bottom>
+      <ion-card *ngFor="let vraag of vragen; let i = index" [attr.data-index]="i">
+        <ion-card-header>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <h2>{{vraag.title}}</h2>
+            <p>{{vraag.question}}</p>
+            <button (click)="Count()">Count</button>
+            <button (click)="sendMessage()">Send Message</button>
+            Message: {{aantal}}
+            <!-- <range></range> -->
+            <ion-range min="-3" max="3" step="1" snaps="true" color="secondary" [(ngModel)]="vraag.value"></ion-range>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-content>
     </ion-slide>
   </ion-slides>
-
-	
   <button ion-button full class="button-fixed">Full Button</button>
 </ion-content>
-
