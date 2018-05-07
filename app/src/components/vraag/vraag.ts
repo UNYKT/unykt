@@ -1,4 +1,4 @@
-import { Component, ContentChild, ViewChild, Input } from '@angular/core';
+import { Component, ContentChild, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { MockVraagProvider } from '../../providers/vraag-service-mock';
 import { RangeComponent } from '../range/range';
@@ -15,8 +15,9 @@ export class VraagComponent {
   dec: boolean = false;
   // count: string = "Hallloooo"
 
+  message:string = "Hallo Nick";
 
-  @Input() vraagMessage: string;
+  @Output() messageEvent = new EventEmitter<string>();
 
 
   
@@ -27,6 +28,10 @@ export class VraagComponent {
    Count() {
   	var lengte = this.vragen.length;
   	console.log(lengte);
+  }
+
+  sendMessage(){
+    this.messageEvent.emit(this.message);
   }
 
 }

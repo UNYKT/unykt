@@ -21,9 +21,14 @@ export class PtPage {
 	// @ViewChild(VraagComponent) vragen;
 	// @ViewChild(RangeComponent) range: RangeComponent;
 	dec: boolean = false;
-  ptMessage = "Hallo";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  message:string;
+
+  receiveMessage($event){
+    this.message = $event;
   }
 
   // count:string;

@@ -8,8 +8,8 @@
 	<ion-list>
 			<h2>{{vraag.title}}</h2>
 			<p>{{vraag.question}}</p>
-			Say: {{vraagMessage}}
-			<button (click)="Count()"></button>
+			<button (click)="Count()">Count</button>
+			<button (click)="sendMessage()">Send Message</button>
 		
 			<!-- <range></range> -->
 			<ion-range min="-3" max="3" step="1" snaps="true" color="secondary" [(ngModel)]="vraag.value"></ion-range>

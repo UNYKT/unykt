@@ -12,7 +12,8 @@
   <ion-slides pager class="position-bullet">
     <ion-slide class="position-absolute">
       <!-- Message: {{count}} -->
-      <vragen *ngIf="dec" [vraagMessage]="ptMessage"></vragen>
+      Message: {{message}}
+      <vragen *ngIf="dec" (messageEvent)="receiveMessage($event)"></vragen>
     </ion-slide>
     <!-- <ion-slide class="position-absolute">
       <vragen></vragen>
