@@ -90,15 +90,12 @@ export class PhtestPage {
   updateAntwoorden(vindex, waarde){
 
 
-    this.antwoorden[vindex] = waarde;
-    // console.log(this.antwoorden[0]);
-    // debugger;
-    let uitvoeren = 0;
+    this.antwoorden.push(waarde);
+    
     let antwoordTotaal = 0;
     for(let c = 0; c < this.antwoorden.length; c++){
       antwoordTotaal += this.antwoorden[c];
-      // console.log(this.antwoorden[c]);
-      // uitvoeren += this.antwoorden[c];
+     
     }
       console.log('Totaal: ' + antwoordTotaal);
   }
