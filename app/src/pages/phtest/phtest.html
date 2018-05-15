@@ -18,14 +18,20 @@
           <ion-list>
             <h2>{{vraag.title}}</h2>
             <p>{{vraag.question}}</p>
-            Message: {{slideCount}}
+            <ion-badge>Message: {{vraag.value}}</ion-badge>
+            
+            <!-- Value: {{value}} -->
             <!-- <range></range> -->
-            <ion-range min="-3" max="3" step="1" snaps="true" color="secondary" [(ngModel)]="vraag.value"></ion-range>
+            <ion-range min="-3" max="3" step="1" snaps="true" color="secondary" [(ngModel)]="vraag.value" (ionBlur)="updateAntwoorden(i, vraag.value)"></ion-range>
           </ion-list>
+          
         </ion-card-content>
       </ion-card>
     </ion-content>
     </ion-slide>
   </ion-slides>
-  <button ion-button full class="button-fixed">Full Button</button>
+  Antwoord totaal:{{antwoordTotaal}}
+  <!-- <button ion-button full class="button-fixed">Full Button</button> -->
 </ion-content>
+
+

@@ -6,6 +6,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RangeComponent } from '../../components/range/range';
 
 import { MockVraagProvider } from '../../providers/vraag-service-mock';
+// import vragen from '../../providers/mock-vraag';
 
 
 
@@ -19,7 +20,14 @@ export class PhtestPage {
 
   slides: Array<any>;
   vragen: any;
-  slideCount: number;
+  antwoorden: Array<any> = [];
+  // antwoordTotaal: number = 0;
+  // rangeValue: Array<any>;
+  // value: any;
+  // valueRange: vragen[] = vragen;
+
+
+
 
 
 
@@ -27,12 +35,19 @@ export class PhtestPage {
     service.findAll().then(data => {
       
       this.vragen = data;
+      // this.value = data;
       // this.slideCount = data.length;
     });
   }
 
   ionViewDidLoad() {
     this.slides = this.createSliders(this.vragen);
+
+    for(let v = 0; v < this.vragen.length; v++){
+      this.antwoorden.push(0);
+    }
+
+    // this.rangeValue = this.valueRange(this.vragen);
   }
 
 
@@ -44,11 +59,13 @@ export class PhtestPage {
     let vragenPerSlide = 6;
     let slides = new Array();
     
+    
       // Controleer of i deelbaar is door vragenPerSlide en een geheel getal oplevert
       var uitkomst = (aantalVragen / vragenPerSlide);
       var aantalSlides = Math.ceil(uitkomst);
     
     for(let s = 0; s < aantalSlides; s++){
+      
       let vragenlijst = new Array();
       slides.push(vragenlijst);
 
@@ -57,15 +74,34 @@ export class PhtestPage {
       if(max > aantalVragen){
         max = aantalVragen;
       }
-
+      console.log(vragenlijst);
       for(let v = start; v < max; v++){
         slides[s].push(vragen[v]);
+
       }
 
     }
 
+    
     return slides;
     
   }
+
+  updateAntwoorden(vindex, waarde){
+
+
+    this.antwoorden[vindex] = waarde;
+    // console.log(this.antwoorden[0]);
+    // debugger;
+    let uitvoeren = 0;
+    let antwoordTotaal = 0;
+    for(let c = 0; c < this.antwoorden.length; c++){
+      antwoordTotaal += this.antwoorden[c];
+      // console.log(this.antwoorden[c]);
+      // uitvoeren += this.antwoorden[c];
+    }
+      console.log('Totaal: ' + antwoordTotaal);
+  }
+
 
 }

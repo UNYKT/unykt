@@ -4,14 +4,14 @@ let vragen: Array<any> = [
 		id: 1,
 		title: "Vraag 1",
 		question: "Lorem Ipsum ihihihihihiihihhii duhfjdgfgfhd hjsgd shdg?",
-		value: 2
+		value: 0
 	},
 
 	{
 		id: 2,
 		title: "Vraag 2",
 		question: "Lorem Ipsum ihihihihihiihihhii duhfjdgfgfhd hjsgd shdg?" ,
-		value: -3
+		value: 0
 	},
 
 	{
