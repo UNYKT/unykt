@@ -1,12 +1,12 @@
 import { Component, ViewChild, ContentChild, EventEmitter } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
-//Components
-// import { VraagComponent } from '../../components/vraag/vraag';
+import { ProfielPage } from '../profiel/profiel';
+
 import { RangeComponent } from '../../components/range/range';
 
 import { MockVraagProvider } from '../../providers/vraag-service-mock';
-// import vragen from '../../providers/mock-vraag';
+
 
 
 
@@ -26,7 +26,7 @@ export class PhtestPage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: MockVraagProvider, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: MockVraagProvider, public toastCtrl: ToastController, public nav: NavController) {
     service.findAll().then(data => {
       
       this.vragen = data;
@@ -114,6 +114,7 @@ export class PhtestPage {
     }
     else {
       this.telAntwoorden();
+      this.goToProfiel();
     }
 
   }
@@ -133,6 +134,10 @@ export class PhtestPage {
     else if (this.arrayTotaal > 90 && this.arrayTotaal < 180) {
       console.log('Profiel 4');
     }
+  }
+
+  goToProfiel(){
+    this.nav.push(ProfielPage);
   }
 
 

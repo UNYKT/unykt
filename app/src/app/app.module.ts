@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { PhtestPage } from '../pages/phtest/phtest';
+import { ProfielPage } from '../pages/profiel/profiel';
 
 //Components
 import { VraagComponent } from '../components/vraag/vraag';
@@ -24,6 +25,7 @@ import { MockVraagProvider } from '../providers/vraag-service-mock';
     HomePage,
     ListPage,
     PhtestPage,
+    ProfielPage,
     VraagComponent,
     RangeComponent
   ],
@@ -37,6 +39,7 @@ import { MockVraagProvider } from '../providers/vraag-service-mock';
     HomePage,
     ListPage,
     PhtestPage,
+    ProfielPage,
     VraagComponent,
     RangeComponent
   ],
