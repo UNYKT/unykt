@@ -1,5 +1,5 @@
 import { Component, ViewChild, ContentChild, EventEmitter } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 //Components
 // import { VraagComponent } from '../../components/vraag/vraag';
@@ -21,22 +21,15 @@ export class PhtestPage {
   slides: Array<any>;
   vragen: any;
   antwoorden: Array<any> = [];
-  // antwoordTotaal: number = 0;
-  // rangeValue: Array<any>;
-  // value: any;
-  // valueRange: vragen[] = vragen;
+  arrayTotaal: any;
+  // antwoordTotaal = 0;  waarom gaat dit fout
 
 
 
-
-
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: MockVraagProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: MockVraagProvider, public toastCtrl: ToastController) {
     service.findAll().then(data => {
       
       this.vragen = data;
-      // this.value = data;
-      // this.slideCount = data.length;
     });
   }
 
@@ -47,9 +40,7 @@ export class PhtestPage {
       this.antwoorden.push(0);
     }
 
-    // this.rangeValue = this.valueRange(this.vragen);
   }
-
 
 
   createSliders(vragen) {
@@ -70,7 +61,7 @@ export class PhtestPage {
       slides.push(vragenlijst);
 
       let start = s * vragenPerSlide;
-      let max   = (s*vragenPerSlide) + vragenPerSlide;
+      let max   = (s * vragenPerSlide) + vragenPerSlide;
       if(max > aantalVragen){
         max = aantalVragen;
       }
@@ -81,7 +72,6 @@ export class PhtestPage {
       }
 
     }
-
     
     return slides;
     
@@ -94,10 +84,55 @@ export class PhtestPage {
     
     let antwoordTotaal = 0;
     for(let c = 0; c < this.antwoorden.length; c++){
-      antwoordTotaal += this.antwoorden[c];
+      this.arrayTotaal = antwoordTotaal += this.antwoorden[c];
      
     }
       console.log('Totaal: ' + antwoordTotaal);
+
+  }
+
+
+  checkProfiel(){
+    let valueIsNul = false;
+
+    for(let p = 0; p < this.antwoorden.length; p++) {
+      if(this.antwoorden[p] == 0){
+        valueIsNul = true;
+      }
+      else {
+        valueIsNul = false;
+      }
+    }
+
+    if(valueIsNul === true) {
+      const toast = this.toastCtrl.create({
+            message: 'Je heb nog niet alles ingevuld',
+            showCloseButton: true,
+            closeButtonText: 'Ok'
+      });
+      toast.present();
+    }
+    else {
+      this.telAntwoorden();
+    }
+
+  }
+
+
+  telAntwoorden(){
+    
+    if(this.arrayTotaal > -180 && this.arrayTotaal < -90) {
+      console.log('Profiel 1');
+    }
+    else if (this.arrayTotaal > -90 && this.arrayTotaal < 0) {
+      console.log('Profiel 2');
+    }
+    else if (this.arrayTotaal > 0 && this.arrayTotaal < 90) {
+      console.log('Profiel 3');
+    }
+    else if (this.arrayTotaal > 90 && this.arrayTotaal < 180) {
+      console.log('Profiel 4');
+    }
   }
 
 
