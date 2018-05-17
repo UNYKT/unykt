@@ -11,9 +11,10 @@
 	<ion-slides loop="true">
   		<ion-slide *ngFor = "let image of images">
   		<div [ngStyle] = "{'background': 'url(' + image.img + ')'}"
-			 [ngClass] = "'bg'">
+			     [ngClass] = "'bg'">
   			<!-- <h2>HOI</h2> -->
   			<button ion-button outline color="light">BUTTON</button>
+        {{image.value}}
   		</div>
 
 
