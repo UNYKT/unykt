@@ -19,9 +19,8 @@ export class PhtestPage {
   @ContentChild(RangeComponent) range: RangeComponent;
 
   slides: Array<any>;
-  vragen: any;
-  antwoorden: Array<any> = [];
   arrayTotaal: any;
+  vragenlijst: Array<any>;
   // antwoordTotaal = 0;  waarom gaat dit fout
 
 
@@ -29,24 +28,19 @@ export class PhtestPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: MockVraagProvider, public toastCtrl: ToastController, public nav: NavController) {
     service.findAll().then(data => {
       
-      this.vragen = data;
+      this.vragenlijst = data;
     });
   }
 
   ionViewDidLoad() {
-    this.slides = this.createSliders(this.vragen);
-
-    for(let v = 0; v < this.vragen.length; v++){
-      this.antwoorden.push(0);
-    }
+    this.slides = this.createSliders();
 
   }
 
 
-  createSliders(vragen) {
-    let s = -1;
+  createSliders() {
     let decimal = false;
-    let aantalVragen = vragen.length; 
+    let aantalVragen = this.vragenlijst.length; 
     let vragenPerSlide = 6;
     let slides = new Array();
     
@@ -55,20 +49,30 @@ export class PhtestPage {
       var uitkomst = (aantalVragen / vragenPerSlide);
       var aantalSlides = Math.ceil(uitkomst);
     
-    for(let s = 0; s < aantalSlides; s++){
-      
+    for(let s = 0; s < aantalSlides; s++) {
+      slides.push(new Array());
+
       let vragenlijst = new Array();
-      slides.push(vragenlijst);
+      // debugger;
+      if(!('vragen' in slides[s])) {
+        slides[s].vragen = [];
+      }
+      if(!('antwoorden' in slides[s])) {
+        slides[s].antwoorden = [];
+      }
+
+      slides[s].vragen.push(vragenlijst);
+      slides[s].antwoorden.push(vragenlijst);
 
       let start = s * vragenPerSlide;
       let max   = (s * vragenPerSlide) + vragenPerSlide;
-      if(max > aantalVragen){
+      if(max > aantalVragen) {
         max = aantalVragen;
       }
       console.log(vragenlijst);
-      for(let v = start; v < max; v++){
-        slides[s].push(vragen[v]);
-
+      for(let v = start; v < max; v++) {
+        slides[s].vragen.push(this.vragenlijst[v]);
+        slides[s].antwoorden[v] = 0;
       }
 
     }
@@ -77,31 +81,25 @@ export class PhtestPage {
     
   }
 
-  updateAntwoorden(vindex, waarde){
+  updateAntwoorden(sindex, vindex, waarde){
 
-
-    this.antwoorden.push(waarde);
-    
-    let antwoordTotaal = 0;
-    for(let c = 0; c < this.antwoorden.length; c++){
-      this.arrayTotaal = antwoordTotaal += this.antwoorden[c];
-     
-    }
-      console.log('Totaal: ' + antwoordTotaal);
-
+    this.slides[sindex].antwoorden[vindex] = waarde;
+   
   }
 
 
   checkProfiel(){
     let valueIsNul = false;
+    let antwoordTotaal = 0;
 
-    for(let p = 0; p < this.antwoorden.length; p++) {
-      if(this.antwoorden[p] == 0){
-        valueIsNul = true;
-      }
-      else {
-        valueIsNul = false;
-      }
+    for(let s = 0; s < this.slides[s].length; s++){
+
+        for(let a = 0; a < this.slides[s].antwoorden.length; a++) {
+          if(this.slides[s].antwoorden[a] == 0){
+            valueIsNul = true;
+          }
+          antwoordTotaal = antwoordTotaal + this.slides[s].antwoorden[a];
+        }
     }
 
     if(valueIsNul === true) {
@@ -113,25 +111,25 @@ export class PhtestPage {
       toast.present();
     }
     else {
-      this.telAntwoorden();
+      this.bepaalProfiel(antwoordTotaal);
       this.goToProfiel();
     }
 
   }
 
 
-  telAntwoorden(){
+  bepaalProfiel(antwoordTotaal){
     
-    if(this.arrayTotaal > -180 && this.arrayTotaal < -90) {
+    if(antwoordTotaal > -180 && antwoordTotaal < -90) {
       console.log('Profiel 1');
     }
-    else if (this.arrayTotaal > -90 && this.arrayTotaal < 0) {
+    else if (antwoordTotaal > -90 && antwoordTotaal < 0) {
       console.log('Profiel 2');
     }
-    else if (this.arrayTotaal > 0 && this.arrayTotaal < 90) {
+    else if (antwoordTotaal > 0 && antwoordTotaal < 90) {
       console.log('Profiel 3');
     }
-    else if (this.arrayTotaal > 90 && this.arrayTotaal < 180) {
+    else if (antwoordTotaal > 90 && antwoordTotaal < 180) {
       console.log('Profiel 4');
     }
   }

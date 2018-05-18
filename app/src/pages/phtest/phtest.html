@@ -3,15 +3,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>pt</ion-title>
+    <ion-title>phtest</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <ion-slides pager class="position-bullet">
-    <ion-slide class="position-absolute" *ngFor="let slide of slides">
+    <ion-slide class="position-absolute" *ngFor="let slide of slides; let s = index">
       <!-- Message: {{count}} -->
       <ion-content margin-top margin-bottom>
-      <ion-card *ngFor="let vraag of slide; let i = index" [attr.data-index]="i">
+      <ion-card *ngFor="let vraag of slide.vragen; let v = index" [attr.data-index]="v">
         <ion-card-header>
         </ion-card-header>
         <ion-card-content>
@@ -22,7 +22,7 @@
             
             <!-- Value: {{value}} -->
             <!-- <range></range> -->
-            <ion-range min="-3" max="3" step="1" snaps="true" color="secondary" [(ngModel)]="vraag.value" (ionBlur)="updateAntwoorden(i, vraag.value)"></ion-range>
+            <ion-range min="-3" max="3" step="1" snaps="true" color="secondary" [(ngModel)]="vraag.value" (ionBlur)="updateAntwoorden(s, v, vraag.value)"></ion-range>
           </ion-list>
           
         </ion-card-content>
