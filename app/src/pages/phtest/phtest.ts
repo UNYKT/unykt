@@ -41,7 +41,7 @@ export class PhtestPage {
   createSliders() {
     let decimal = false;
     let aantalVragen = this.vragenlijst.length; 
-    let vragenPerSlide = 6;
+    let vragenPerSlide = 10;
     let slides = new Array();
     
     
@@ -94,7 +94,7 @@ export class PhtestPage {
 
     for(let s = 0; s < this.slides[s].length; s++){
 
-        for(let a = 0; a < this.slides[s].antwoorden.length; a++) {
+        for(let a = 0; a < this.slides[s].antwoorden[a].length; a++) {
           if(this.slides[s].antwoorden[a] == 0){
             valueIsNul = true;
           }
