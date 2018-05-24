@@ -27,7 +27,6 @@ export class PhtestPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: MockVraagProvider, public toastCtrl: ToastController, public nav: NavController) {
     service.findAll().then(data => {
-      
       this.vragenlijst = data;
     });
   }
@@ -41,13 +40,12 @@ export class PhtestPage {
   createSliders() {
     let decimal = false;
     let aantalVragen = this.vragenlijst.length; 
-    let vragenPerSlide = 10;
+    let vragenPerSlide = 6;
     let slides = new Array();
-    
-    
+    debugger;
       // Controleer of i deelbaar is door vragenPerSlide en een geheel getal oplevert
-      var uitkomst = (aantalVragen / vragenPerSlide);
-      var aantalSlides = Math.ceil(uitkomst);
+      let uitkomst = (aantalVragen / vragenPerSlide);
+      let aantalSlides = Math.ceil(uitkomst);
     
     for(let s = 0; s < aantalSlides; s++) {
       slides.push(new Array());
@@ -69,7 +67,6 @@ export class PhtestPage {
       if(max > aantalVragen) {
         max = aantalVragen;
       }
-      console.log(vragenlijst);
       for(let v = start; v < max; v++) {
         slides[s].vragen.push(this.vragenlijst[v]);
         slides[s].antwoorden[v] = 0;
@@ -84,6 +81,7 @@ export class PhtestPage {
   updateAntwoorden(sindex, vindex, waarde){
 
     this.slides[sindex].antwoorden[vindex] = waarde;
+    // debugger;
    
   }
 
@@ -91,17 +89,20 @@ export class PhtestPage {
   checkProfiel(){
     let valueIsNul = false;
     let antwoordTotaal = 0;
+    debugger;
 
     for(let s = 0; s < this.slides[s].length; s++){
 
         for(let a = 0; a < this.slides[s].antwoorden[a].length; a++) {
+
           if(this.slides[s].antwoorden[a] == 0){
             valueIsNul = true;
           }
           antwoordTotaal = antwoordTotaal + this.slides[s].antwoorden[a];
         }
-    }
 
+    }
+    // debugger;
     if(valueIsNul === true) {
       const toast = this.toastCtrl.create({
             message: 'Je heb nog niet alles ingevuld',
