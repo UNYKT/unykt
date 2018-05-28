@@ -6,18 +6,21 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //Pages
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { PhtestPage } from '../pages/phtest/phtest';
+import { PtPage } from '../pages/pt/pt';
+import { PerbstPage } from '../pages/perbst/perbst';
 
 //Components
-import { VraagComponent } from '../components/vraag/vraag';
-import { RangeComponent } from '../components/range/range';
+// import { VraagComponent } from '../components/vraag/vraag';
+// import { RangeComponent } from '../components/range/range';
+
+//Provider
+import { ImgProvider } from '../providers/img-service-mock';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  // @ViewChild(RangeComponent) range: RangeComponent;
 
   rootPage: any = HomePage;
 
@@ -30,7 +33,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Test', component: PhtestPage }
+      { title: 'Test', component: PtPage },
+      { title: 'Persoonlijke Bestemmingen', component: PerbstPage}
     ];
 
   }

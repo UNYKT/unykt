@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>perbst</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-slides loop="true">
+  		<ion-slide *ngFor = "let image of images">
+  		<div [ngStyle] = "{'background': 'url(' + image.img + ')'}"
+			     [ngClass] = "'bg'">
+  			<!-- <h2>HOI</h2> -->
+  			<button ion-button outline color="light">BUTTON</button>
+        {{image.value}}
+  		</div>
+
+
+  		<!-- <img [src]="image.img"> -->
+  		
+  		</ion-slide>
+	</ion-slides>
+
+</ion-content>
+
+

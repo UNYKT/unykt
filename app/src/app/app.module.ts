@@ -6,28 +6,32 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { PhtestPage } from '../pages/phtest/phtest';
-import { ProfielPage } from '../pages/profiel/profiel';
+import { PtPage } from '../pages/pt/pt';
+import { PerbstPage } from '../pages/perbst/perbst';
 
 //Components
 import { VraagComponent } from '../components/vraag/vraag';
 import { RangeComponent} from '../components/range/range';
+import { SliderComponent } from '../components/slider/slider';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 //Providers
 import { MockVraagProvider } from '../providers/vraag-service-mock';
+import { ImgProvider } from '../providers/img-service-mock';
+// import { MockProfielProvider } from '../providers/mock-profiel/mock-profiel';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    PhtestPage,
-    ProfielPage,
+    PtPage,
+    PerbstPage,
     VraagComponent,
-    RangeComponent
+    RangeComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,16 +42,18 @@ import { MockVraagProvider } from '../providers/vraag-service-mock';
     MyApp,
     HomePage,
     ListPage,
-    PhtestPage,
-    ProfielPage,
+    PtPage,
+    PerbstPage,
     VraagComponent,
-    RangeComponent
+    RangeComponent,
+    SliderComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
     MockVraagProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    ImgProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}
