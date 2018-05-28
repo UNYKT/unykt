@@ -93,7 +93,7 @@ export class PhtestPage {
 
     for(let s = 0; s < this.slides[s].length; s++){
 
-        for(let a = 0; a < this.slides[s].antwoorden[a].length; a++) {
+        for(let a = 0; a < this.slides[s].antwoorden.length; a++) {
 
           if(this.slides[s].antwoorden[a] == 0){
             valueIsNul = true;
